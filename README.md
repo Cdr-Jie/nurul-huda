@@ -17,7 +17,6 @@ TODO
    - Expense tracking with auto calculations
    - Export to excel function
   
-==============================
 Musts
 ==============================
 
@@ -25,7 +24,6 @@ Set up web hosting using vercel + mysql
 Framework using react + node
 Mobile first
 
-==============================
 Wants
 ==============================
 
