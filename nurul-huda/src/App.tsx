@@ -1,43 +1,22 @@
-// src/App.tsx
-import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Banner from './components/Banner';
-import EventCard from './components/EventCard';
+import HomePage from './pages/HomePage';
+import TestPage from './pages/TestPage';
 
-const App = () => {
-  const events = [
-    {
-      image: "https://via.placeholder.com/300x200",
-      title: "Kuliah Maghrib Perdana",
-      date: "15 Mei 2026",
-      description: "Tafsir Al-Quran dan sesi soal jawab bersama Ustaz jemputan.",
-      organizer: "Biro Dakwah"
-    },
-    {
-      image: "https://via.placeholder.com/300x200",
-      title: "Program Gotong-Royong",
-      date: "20 Mei 2026",
-      description: "Membersihkan kawasan persekitaran masjid dan penyediaan jamuan.",
-      organizer: "Jawatankuasa Kebersihan"
-    }
-  ];
-
+function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
-      <Banner />
+    <Router>
+      <Navbar /> {/* Navbar stays visible on all pages */}
       
-      <main className="container mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Aktiviti Terkini</h2>
-        <div className="max-w-4xl mx-auto">
-          {events.map((event, index) => (
-            <EventCard key={index} {...event} />
-          ))}
-        </div>
-      </main>
-    </div>
+      <Routes>
+        {/* URL: localhost:3000/ */}
+        <Route path="/" element={<HomePage />} />
+        
+        {/* URL: localhost:3000/test */}
+        <Route path="/test" element={<TestPage />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
