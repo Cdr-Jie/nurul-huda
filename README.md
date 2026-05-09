@@ -20,6 +20,7 @@ TODO
 ==============================
 Musts
 ==============================
+
 Set up web hosting using vercel + mysql
 Framework using react + node
 Mobile first
@@ -27,5 +28,6 @@ Mobile first
 ==============================
 Wants
 ==============================
+
 App deployment through Android apk
 Youtube tutorials for each module
