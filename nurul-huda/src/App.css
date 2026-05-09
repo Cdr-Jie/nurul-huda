@@ -1,0 +1,235 @@
+/* App.css */
+
+/* 1. Global Reset & Typography */
+:root {
+  --primary-color: #2563eb;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-gray: #f9fafb;
+  --white: #ffffff;
+  --border: #e5e7eb;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+}
+
+/* 2. Navigation Menu */
+nav {
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* 3. Banner Section */
+.banner {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.banner-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: var(--white);
+  padding: 0 20px;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 4. Event Cards */
+.main-content {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.event-card {
+  display: flex;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+}
+
+.event-image-container {
+  flex: 1;
+  min-width: 300px;
+  height: 250px;
+}
+
+.event-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-details {
+  flex: 2;
+  padding: 1.5rem;
+}
+
+.event-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.event-date {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.event-description {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.event-organizer {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* 5. Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* You would typically add a hamburger menu here */
+  }
+
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .event-card {
+    flex-direction: column;
+  }
+
+  .event-image-container {
+    min-width: 100%;
+  }
+}
+
+/* Navbar Container */
+.nav-bar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 2rem;
+  height: 70px; /* Fixed height helps vertical centering */
+  display: flex;
+  align-items: center; /* Centers items vertically */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row; /* Forces horizontal layout */
+  justify-content: space-between; /* Logo left, Menu right */
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* The Menu List */
+.nav-menu {
+  display: flex;
+  flex-direction: row; /* Ensures links are side-by-side */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem; /* Space between links */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-item a:hover {
+  color: #2563eb;
+}
+
+/* Hide empty links but keep the slot available */
+.nav-item a:empty::before {
+  content: "TBA";
+  color: #ccc;
+}
