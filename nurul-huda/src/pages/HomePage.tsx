@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import PrayerTimesCarousel from '../components/PrayerTimesCarousel';
 import Banner from '../components/Banner';
 import EventCard from '../components/EventCard';
 
-const HomePage: React.FC = () => {
-  const [selectedPrayerDay] = useState<'today' | 'tomorrow'>('today');
-
-  // Prayer times data
+// Prayer times data
   const prayerTimes = {
     today: [
       { name: 'Subuh', time: '05:30' },
@@ -17,7 +15,10 @@ const HomePage: React.FC = () => {
     ]
   };
 
-  // Events data
+const HomePage: React.FC = () => {
+  const [selectedPrayerDay] = useState<'today' | 'tomorrow'>('today');
+
+    // Events data
   const events = [
     {
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
@@ -48,29 +49,7 @@ const HomePage: React.FC = () => {
       <Banner />
 
       {/* Prayer Times Section */}
-      <section className="py-12 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Waktu Solat Hari Ini</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {prayerTimes.today.map((prayer, index) => (
-              <div 
-                key={index} 
-                className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 text-center border border-blue-200 hover:shadow-md transition-shadow"
-              >
-                <h3 className="text-lg font-semibold text-gray-800">{prayer.name}</h3>
-                <p className="text-3xl font-bold text-blue-600 mt-2">{prayer.time}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-gray-600 text-sm">
-              ⏰ Waktu solat di atas adalah untuk Wilayah Kuala Lumpur. Sila semak untuk wilayah anda.
-            </p>
-          </div>
-        </div>
-      </section>
+        <PrayerTimesCarousel prayerTimes={prayerTimes} />
 
       {/* About Mosque Section */}
       <section className="py-12 px-4 bg-gray-50">
