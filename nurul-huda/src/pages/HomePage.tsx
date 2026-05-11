@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import PrayerTimesCarousel from '../components/PrayerTimesCarousel';
 import Banner from '../components/Banner';
 import EventCard from '../components/EventCard';
+import MasjidLocation from '../components/MasjidLocation';
+import EventsSection from '../components/EventsSection';
 
 // Prayer times data
   const prayerTimes = {
@@ -17,31 +19,6 @@ import EventCard from '../components/EventCard';
 
 const HomePage: React.FC = () => {
   const [selectedPrayerDay] = useState<'today' | 'tomorrow'>('today');
-
-    // Events data
-  const events = [
-    {
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
-      title: 'Kuliah Subuh',
-      date: '11 Mei 2026',
-      description: 'Sesi kuliah pagi bersama ustaz tamu yang membahas tentang keikhlasan dalam beribadah.',
-      organizer: 'Divisi Dakwah'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=500&h=300&fit=crop',
-      title: 'Program Tahsin Al-Quran',
-      date: '15 Mei 2026',
-      description: 'Program perbaikan bacaan Al-Quran untuk semua tingkat kemahiran. Setiap hari Selasa dan Khamis selepas Maghrib.',
-      organizer: 'Divisi Pendidikan Islam'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&h=300&fit=crop',
-      title: 'Majlis Tarawih & Qiyamullail',
-      date: '20 Mei 2026',
-      description: 'Majlis tarawih dan qiyamullail berhadapan dengan program tazkirah setiap malam Ramadan.',
-      organizer: 'Divisi Ibadah'
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -129,84 +106,10 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Events Section */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Acara Mendatang</h2>
-          
-          <div>
-            {events.map((event, index) => (
-              <EventCard 
-                key={index}
-                image={event.image}
-                title={event.title}
-                date={event.date}
-                description={event.description}
-                organizer={event.organizer}
-              />
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-              Lihat Semua Acara
-            </button>
-          </div>
-        </div>
-      </section>
+      <EventsSection />
 
       {/* Quick Info Section */}
-      <section className="py-12 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Maklumat Pantas</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="border-l-4 border-blue-600 pl-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">📍 Lokasi</h3>
-              <p className="text-gray-700">
-                Jalan Rajah, 50400<br/>
-                Kuala Lumpur, Malaysia
-              </p>
-            </div>
-
-            <div className="border-l-4 border-green-600 pl-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">📞 Hubungi Kami</h3>
-              <p className="text-gray-700">
-                Tel: +60 3 1234 5678<br/>
-                Email: info@masjidkita.com
-              </p>
-            </div>
-
-            <div className="border-l-4 border-purple-600 pl-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">⏰ Jam Operasi</h3>
-              <p className="text-gray-700">
-                Isnin - Ahad: 5:00 pagi - 10:00 malam<br/>
-                Hari Kelepasan: Seperti biasa
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="py-12 px-4 bg-blue-600">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Jadilah Sebahagian dari Komuniti Kami</h2>
-          <p className="text-blue-100 mb-8">
-            Daftar untuk menerima berita terkini, acara mendatang, dan pengumuman penting dari Masjid Kita.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-3">
-            <input 
-              type="email" 
-              placeholder="Masukkan email anda" 
-              className="flex-1 px-4 py-3 rounded-lg focus:outline-none"
-            />
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              Daftar
-            </button>
-          </div>
-        </div>
-      </section>
+      <MasjidLocation />
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 px-4">
