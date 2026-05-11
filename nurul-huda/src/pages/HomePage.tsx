@@ -49,7 +49,7 @@ const HomePage: React.FC = () => {
       <Banner />
 
       {/* Prayer Times Section */}
-        <PrayerTimesCarousel prayerTimes={prayerTimes} />
+    <PrayerTimesCarousel prayerTimes={prayerTimes} />
 
       {/* About Mosque Section */}
       <section className="py-12 px-4 bg-gray-50">
