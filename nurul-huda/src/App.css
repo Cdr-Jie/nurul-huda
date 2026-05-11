@@ -1,235 +1,530 @@
-/* App.css */
+/* App.css - Optimized for Mobile & Desktop */
 
-/* 1. Global Reset & Typography */
+/* ============================================
+   1. ROOT VARIABLES & GLOBAL STYLES
+   ============================================ */
 :root {
-  --primary-color: #2563eb;
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --secondary: #10b981;
+  --accent: #f59e0b;
   --text-dark: #1f2937;
   --text-light: #6b7280;
+  --text-lighter: #9ca3af;
+  --bg-white: #ffffff;
   --bg-gray: #f9fafb;
-  --white: #ffffff;
-  --border: #e5e7eb;
+  --bg-gray-light: #f3f4f6;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   background-color: var(--bg-gray);
   color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* 2. Navigation Menu */
-nav {
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem 2rem;
+/* ============================================
+   2. NAVIGATION BAR - MOBILE OPTIMIZED
+   ============================================ */
+.nav-bar {
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-md);
+  padding: 0.75rem 1rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-menu a:hover {
-  color: var(--primary-color);
-}
-
-/* 3. Banner Section */
-.banner {
-  position: relative;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  overflow: hidden;
-}
-
-.banner-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.6;
-}
-
-.banner-content {
-  position: relative;
-  z-index: 5;
-  text-align: center;
-  color: var(--white);
-  padding: 0 20px;
-}
-
-.banner-content h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-/* 4. Event Cards */
-.main-content {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 1rem;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.event-card {
-  display: flex;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
-}
-
-.event-card:hover {
-  transform: translateY(-2px);
-}
-
-.event-image-container {
-  flex: 1;
-  min-width: 300px;
-  height: 250px;
-}
-
-.event-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.event-details {
-  flex: 2;
-  padding: 1.5rem;
-}
-
-.event-title {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.event-date {
-  color: var(--primary-color);
-  font-weight: bold;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-
-.event-description {
-  color: var(--text-light);
-  line-height: 1.6;
-  margin: 1rem 0;
-}
-
-.event-organizer {
-  border-top: 1px solid var(--border);
-  padding-top: 1rem;
-  font-style: italic;
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-/* 5. Responsive Design */
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none; /* You would typically add a hamburger menu here */
-  }
-
-  .banner-content h1 {
-    font-size: 2rem;
-  }
-
-  .event-card {
-    flex-direction: column;
-  }
-
-  .event-image-container {
-    min-width: 100%;
-  }
-}
-
-/* Navbar Container */
-.nav-bar {
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 0 2rem;
-  height: 70px; /* Fixed height helps vertical centering */
-  display: flex;
-  align-items: center; /* Centers items vertically */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row; /* Forces horizontal layout */
-  justify-content: space-between; /* Logo left, Menu right */
-  align-items: center;
+  gap: 1rem;
 }
 
 .logo {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #2563eb;
+  font-weight: 700;
+  color: var(--primary);
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
 }
 
-/* The Menu List */
 .nav-menu {
   display: flex;
-  flex-direction: row; /* Ensures links are side-by-side */
   list-style: none;
+  gap: 0.5rem;
   margin: 0;
   padding: 0;
-  gap: 1.5rem; /* Space between links */
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
 }
 
 .nav-item a {
   text-decoration: none;
-  color: #333;
+  color: var(--text-dark);
   font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.2s ease;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  display: inline-block;
 }
 
 .nav-item a:hover {
-  color: #2563eb;
+  color: var(--primary);
+  background-color: var(--bg-gray-light);
 }
 
-/* Hide empty links but keep the slot available */
 .nav-item a:empty::before {
-  content: "TBA";
-  color: #ccc;
+  content: "";
+  display: none;
+}
+
+/* ============================================
+   3. MOBILE NAVIGATION (Hidden by default)
+   ============================================ */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    padding: 0.5rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-white);
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-menu.active {
+    max-height: 400px;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-item a {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  .nav-item a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* ============================================
+   4. TYPOGRAPHY & SPACING UTILITIES
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* ============================================
+   5. BUTTONS
+   ============================================ */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--bg-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 640px) {
+  .btn {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* ============================================
+   6. FORMS & INPUTS
+   ============================================ */
+input[type="email"],
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* ============================================
+   7. SECTIONS & CONTAINERS
+   ============================================ */
+section {
+  padding: 3rem 1rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   8. GRID RESPONSIVE
+   ============================================ */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   9. CARDS & BOXES
+   ============================================ */
+.card {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+/* ============================================
+   10. TEXT UTILITIES
+   ============================================ */
+.text-center {
+  text-align: center;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-gray {
+  color: var(--text-light);
+}
+
+/* ============================================
+   11. FLEX & LAYOUT
+   ============================================ */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+/* ============================================
+   12. SPACING
+   ============================================ */
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+/* ============================================
+   13. BORDERS
+   ============================================ */
+.border-t {
+  border-top: 1px solid var(--border-color);
+}
+
+.border-l {
+  border-left: 4px solid var(--border-color);
+}
+
+.rounded {
+  border-radius: 0.375rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+/* ============================================
+   14. GRADIENTS
+   ============================================ */
+.gradient-blue {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+}
+
+.gradient-purple {
+  background: linear-gradient(135deg, #e9d5ff 0%, #ddd6fe 100%);
+}
+
+.gradient-yellow {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+.gradient-red {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+}
+
+/* ============================================
+   15. RESPONSIVE IMAGES
+   ============================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   16. FOOTER
+   ============================================ */
+footer {
+  background-color: #111827;
+  color: var(--bg-white);
+  padding: 2rem 1rem;
+}
+
+footer a {
+  color: #d1d5db;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 1.5rem 1rem;
+  }
 }
